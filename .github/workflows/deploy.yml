@@ -8,6 +8,7 @@ env:
   MONGODB_DB_NAME:
 jobs:
   test:
+    environment: testing
     env:
       # Cluster-demo
       # LI8b3qtpMVUk3kSC

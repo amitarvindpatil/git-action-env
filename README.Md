@@ -58,3 +58,32 @@ jobs:
 ```
 1. Goto repo settings --> Secrets --> Actions
 2. Set Repository Secrets
+
+jobs:
+  test:
+    env:
+      
+      MONGODB_CLUSTER_ADDRESS: cluster-demo.5kx34o1.mongodb.net
+<!-- Secrets Declaration -->
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}    
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+
+### Usage of Environment Secrets (for credentials )
+```
+1. Goto repo settings --> Environment --> config enviroments
+2. goto Enviroment Secrets panel and add MONGODB_USERNAME and MONGODB_PASSWORD
+3. it can also allow to specify the deployment branch such as master,
+  
+env:
+  MONGODB_DB_NAME:
+jobs:
+  test:
+  <!-- Enviroment Declaration -->
+    environment: testing
+    env:
+      # Cluster-demo
+      # LI8b3qtpMVUk3kSC
+      MONGODB_CLUSTER_ADDRESS: cluster-demo.5kx34o1.mongodb.net
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+      PORT: 8080
